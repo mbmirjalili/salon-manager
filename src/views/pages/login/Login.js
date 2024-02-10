@@ -16,6 +16,12 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
+const checkPassword = (e) => {
+  if (!e.target.value) e.target.classList.add('input-danger')
+  else e.target.classList.remove('input-danger')
+  console.log(e)
+}
+
 const Login = () => {
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -42,13 +48,16 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
+                        onChange={checkPassword}
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
-                          Login
-                        </CButton>
+                        <Link to="/dashboard">
+                          <CButton color="primary" className="px-4">
+                            Login
+                          </CButton>
+                        </Link>
                       </CCol>
                       <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">
